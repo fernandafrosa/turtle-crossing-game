@@ -11,9 +11,12 @@ class Player(Turtle):
         self.color("black")
         self.shape("turtle")
         self.penup()
-        self.setpos(STARTING_POSITION)
+        self.initializePos()
         self.left(90)
 
     def go_up(self):
         new_y = self.ycor() + MOVE_DISTANCE
         self.goto(self.xcor(), new_y)
+
+    def initializePos(self):
+        self.setpos(STARTING_POSITION)

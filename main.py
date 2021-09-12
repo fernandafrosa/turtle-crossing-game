@@ -25,6 +25,16 @@ while game_on:
     time.sleep(0.1)
     screen.update()
 
+    car_manager.create_car()
+    car_manager.move()
+
+    #turtle crosses the screen
+    if player.ycor() > 280:
+        scoreboard.scorePoint()
+        scoreboard.updateLevel()
+        player.initializePos()
+        #cars need to have its speed increased
+
 
 
 screen.exitonclick()
