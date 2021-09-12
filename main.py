@@ -28,12 +28,18 @@ while game_on:
     car_manager.create_car()
     car_manager.move()
 
-    #turtle crosses the screen
+    #turtle gets to finish line
     if player.ycor() > 280:
         scoreboard.scorePoint()
         scoreboard.updateLevel()
         player.initializePos()
-        #cars need to have its speed increased
+        car_manager.increaseSpeed()
+
+    #detect collision with cars
+    for car in car_manager.cars:
+        if player.distance(car) < 20:
+            scoreboard.game_over()
+            game_on = False
 
 
 
